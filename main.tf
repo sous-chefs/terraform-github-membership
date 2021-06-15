@@ -4,6 +4,12 @@ resource "github_membership" "maintainers" {
   role     = "member"
 }
 
+resource "github_team_membership" "maintainers" {
+  for_each = toset(var.maintainers)
+  username = each.key
+  team_id  = github_team.maintainers.id
+}
+
 resource "github_team" "maintainers" {
   name        = "maintainers"
   description = "Sous-Chefs Maintainers"
@@ -14,6 +20,13 @@ resource "github_membership" "board" {
   for_each = toset(var.board)
   username = each.key
   role     = "admin"
+}
+
+resource "github_team_membership" "board" {
+  for_each = toset(var.board)
+  username = each.key
+  team_id  = github_team.board.id
+  role     = "maintainer"
 }
 
 resource "github_team" "board" {
@@ -27,6 +40,12 @@ resource "github_membership" "bots" {
   for_each = toset(var.bots)
   username = each.key
   role     = "member"
+}
+
+resource "github_team_membership" "bots" {
+  for_each = toset(var.bots)
+  username = each.key
+  team_id  = github_team.bots.id
 }
 
 resource "github_team" "bots" {
