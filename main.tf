@@ -12,7 +12,7 @@ resource "github_team_membership" "maintainers" {
 
 resource "github_team" "maintainers" {
   name        = "maintainers"
-  description = "Sous-Chefs Maintainers"
+  description = "${var.organization} Maintainers"
   privacy     = "closed"
 }
 
@@ -31,7 +31,7 @@ resource "github_team_membership" "board" {
 
 resource "github_team" "board" {
   name        = "board"
-  description = "Sous-Chefs Board"
+  description = "${var.organization} Board"
   privacy     = "closed"
 }
 
@@ -50,6 +50,10 @@ resource "github_team_membership" "bots" {
 
 resource "github_team" "bots" {
   name        = "bots"
-  description = "Sous-Chefs Bots"
+  description = "${var.organization} Bots"
   privacy     = "closed"
+}
+
+variable "organization" {
+  default = "sous-chefs"
 }

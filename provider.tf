@@ -7,7 +7,7 @@ terraform {
   required_version = ">= 1.0.0"
 
   backend "remote" {
-    organization = "sous-chefs"
+    organization = "test-kitchen"
     workspaces {
       name = "terraform-github-membership"
     }
@@ -15,5 +15,5 @@ terraform {
 }
 
 provider "github" {
-  owner = "sous-chefs"
+  owner = "test-kitchen"
 }
