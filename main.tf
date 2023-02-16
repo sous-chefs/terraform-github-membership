@@ -7,6 +7,7 @@ resource "github_membership" "maintainers" {
 resource "github_team_membership" "maintainers" {
   for_each = toset(compact(distinct(concat(var.maintainers, var.board))))
   username = each.key
+  role     = "maintainer"
   team_id  = github_team.maintainers.id
 }
 
