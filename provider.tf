@@ -16,6 +16,4 @@ terraform {
   }
 }
 
-provider "github" {
-  organization = "sous-chefs"
-}
+provider "github" {}
