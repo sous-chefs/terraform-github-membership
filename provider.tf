@@ -17,5 +17,5 @@ terraform {
 }
 
 provider "github" {
-  owner = "sous-chefs"
+  organization = "sous-chefs"
 }
