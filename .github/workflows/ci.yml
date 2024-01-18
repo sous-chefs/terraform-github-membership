@@ -22,7 +22,7 @@ jobs:
       - name: Check out code
         uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4
       - name: Run Markdown Lint
-        uses: DavidAnson/markdownlint-cli2-action@v14
+        uses: DavidAnson/markdownlint-cli2-action@v15
         with:
           globs: "**/*.md"
   json:
